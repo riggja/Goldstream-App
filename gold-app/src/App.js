@@ -1,5 +1,4 @@
 import NavBar from "./NavBar.js";
-import Homepage from "./Homepage.js";
 import './style.css';
 
 function App() {
@@ -12,6 +11,7 @@ function App() {
         </p>
         <a
           href="https://github.com/riggja/Goldstream-App"
+          rel="noreferrer"
           target="_blank"
         >
           Here is the github

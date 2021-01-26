@@ -24,7 +24,7 @@ class NavBar extends Component {
                     <img src="src/GSELogo.png" alt="Goldstream Engineering Logo"></img>
                 </li>
                 <li>
-                    <a href="index.html">Home</a>
+                <a href="index.html">Homepage</a>
                 </li>
                 <li>
                     <a href="subPage.html">Files</a>
