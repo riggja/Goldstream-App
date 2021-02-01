@@ -6,6 +6,7 @@ class NavBar extends Component {
     render() {
         return(
         <nav>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></link>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></link>
             <link rel="stylesheet" href="css/style.css"></link>
             <div id="smallmenu" className="dropdown">
@@ -21,7 +22,7 @@ class NavBar extends Component {
             <div>
               <ul id="menu">
                 <li>
-                    <img src="src/GSELogo.png" alt="Goldstream Engineering Logo"></img>
+                    <img src="src/GSELogo.png" alt="Goldstream Engineering Logo"/>
                 </li>
                 <li>
                 <a href="index.html">Homepage</a>
