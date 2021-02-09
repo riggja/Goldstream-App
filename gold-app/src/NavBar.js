@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
 import './style.css';
 
 class NavBar extends Component {
@@ -8,16 +10,11 @@ class NavBar extends Component {
         <nav>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></link>
             <link rel="stylesheet" href="css/style.css"></link>
-            <div id="smallmenu" className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Menu
-                </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="index.html">Home</a>
-                    <a className="dropdown-item" href="subPage.html">Files</a>
-                    <a className="dropdown-item" href="subPage.html">Settings</a>
-                </div>
-            </div>
+            <DropdownButton id="smallmenu" title="Menu">
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            </DropdownButton>
             <div>
               <ul id="menu">
                 <li>
