@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import './style.css';
+import Homepage from "./Homepage.js";
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
-import './style.css';
+import Image from 'react-bootstrap/Image'
+
 
 class NavBar extends Component {
 
@@ -18,16 +21,16 @@ class NavBar extends Component {
             <div>
               <ul id="menu">
                 <li>
-                    <img src="src/Mammoth.jpg" alt="Goldstream Engineering Logo"></img>
+                    <Image width={180} height={60} src="/GSELogo.png" alt="Goldstream Engineering Logo"/>
                 </li>
                 <li>
-                    <a href="index.html">Homepage</a>
+                    <a href="/Homepage">Homepage</a>
                 </li>
                 <li>
-                    <a href="subPage.html">Files</a>
+                    <a href="/Files">Files</a>
                 </li>
                 <li>
-                    <a href="subPage.html">Settings</a>
+                    <a href="/Settings">Settings</a>
                 </li>
               </ul>
             </div>
