@@ -13,9 +13,15 @@ class NavBar extends Component {
         return(
         <nav>
             <DropdownButton id="smallmenu" title="Menu">
-                <Dropdown.Item href="/Homepage">Homepage</Dropdown.Item>
-                <Dropdown.Item href="/Files">Files</Dropdown.Item>
-                <Dropdown.Item href="/Settings">Settings</Dropdown.Item>
+            {PageLinks.map((item, index) => {
+                    return (
+                        <li key={index} className="nav-item">
+                            <Link className="nav-link" to={item.url}>
+                                {item.title}
+                            </Link>
+                        </li>
+                    )
+                })}
             </DropdownButton>
             <div>
               <ul id="menu">
