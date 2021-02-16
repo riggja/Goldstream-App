@@ -6,10 +6,16 @@ class Homepage extends Component {
     render() {
         return(
             <main>
-                <section id="homepage" className="w-100 p-3">
-                    <h1 id="title">Foundation for the Global Advancement of Children</h1>
-                    <p id="mission">Bringing children out of poverty by supporting
-                        education and creating safe, loving environments.</p>
+               <section className="App-header">
+                    <p>
+                        Hello Goldstream! This is the app.
+                    </p>
+                    <a
+                        href="https://github.com/riggja/Goldstream-App"
+                        rel="noreferrer"
+                        target="_blank">
+                        Here is the github
+                    </a>
                 </section>
             </main>
         )

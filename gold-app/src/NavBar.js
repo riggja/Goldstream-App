@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './style.css';
-import Homepage from "./Homepage.js";
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Image from 'react-bootstrap/Image'
+import { Link } from 'react-router-dom';
+import { PageLinks} from "./PageLinks";
 
 
 class NavBar extends Component {
@@ -11,8 +12,6 @@ class NavBar extends Component {
     render() {
         return(
         <nav>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></link>
-            <link rel="stylesheet" href="css/style.css"></link>
             <DropdownButton id="smallmenu" title="Menu">
                 <Dropdown.Item href="/Homepage">Homepage</Dropdown.Item>
                 <Dropdown.Item href="/Files">Files</Dropdown.Item>
@@ -23,15 +22,15 @@ class NavBar extends Component {
                 <li>
                     <Image width={180} height={60} src="/GSELogo.png" alt="Goldstream Engineering Logo"/>
                 </li>
-                <li>
-                    <a href="/Homepage">Homepage</a>
-                </li>
-                <li>
-                    <a href="/Files">Files</a>
-                </li>
-                <li>
-                    <a href="/Settings">Settings</a>
-                </li>
+                {PageLinks.map((item, index) => {
+                    return (
+                        <li key={index} className="nav-item">
+                            <Link className="nav-link" to={item.url}>
+                                {item.title}
+                            </Link>
+                        </li>
+                    )
+                })}
               </ul>
             </div>
          </nav>
