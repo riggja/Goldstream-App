@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import NavBar from "./NavBar.js";
-import Homepage from "./Homepage.js";
-import Files from "./Files.js";
-import Settings from "./Settings.js";
-import Error from "./Error";
-import './style.css';
+import NavBar from "./nav-bar/NavBar.js";
+import Homepage from "./pages/Homepage.js";
+import Files from "./pages/Files.js";
+import Settings from "./pages/Settings.js";
+import Error from "./pages/Error";
+import './css/style.css';
 
 function App() {
   return (

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './style.css';
+import Button from 'react-bootstrap/Button'
+import '../css/style.css';
 
 class Files extends Component {
 
@@ -7,10 +8,10 @@ class Files extends Component {
         return(
             <main>
                <section className="App-header">
-                    <p>
-                        This is where we can add edit share files.
-                    </p>
-                    
+                    <h1>
+                        Files:
+                    </h1>
+                    <Button variant="outline-success">Add New File</Button>{''}
                 </section>
             </main>
         )

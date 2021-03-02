@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './style.css';
+import '../css/style.css';
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Image from 'react-bootstrap/Image'
