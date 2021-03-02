@@ -8,6 +8,10 @@ export const PageLinks = [
         url: '/files',
     },
     {        
+        title: 'newFile',
+        url: '/newFile',
+    },
+    {        
         title: 'Settings',
         url: '/settings',
     }
