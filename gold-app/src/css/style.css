@@ -1,5 +1,5 @@
 html {
-    background-color: whitesmoke;
+    background-color: lightgrey;
     height: 100%;
     width: 100%; 
 }
@@ -7,7 +7,7 @@ html {
 section {
     padding: 2em;
     padding-top: 7em;
-    background-color: whitesmoke;
+    background-color: lightgrey;
 }
 
 footer {
@@ -25,7 +25,7 @@ nav {
     left: 0;
     width: 100%; 
     padding: .75rem;
-    background-color:#279224;
+    background-color:#a79e26;
 }
 
 a {
@@ -33,7 +33,7 @@ a {
 }
 
 a:hover {
-    color: gold;
+    color: forestgreen;
     text-decoration: none;
 }
 
@@ -48,8 +48,8 @@ ul#menu li{
 }
 
 ul#menu li:hover {
-    color: gold;
-    border-bottom: .2rem solid  gold;
+    color: forestgreen;
+    border-bottom: .2rem solid  forestgreen;
     
 }
 
@@ -67,7 +67,7 @@ ul {
 
     #smallmenu{
         display: none;
-        color: goldenrod;
+        color: forestgreen;
     }
 
     p{
@@ -76,7 +76,7 @@ ul {
 
     footer {
         display: block;
-        background-color: whitesmoke;
+        background-color: lightgrey;
         padding: 2em;
         
     }

@@ -25,7 +25,7 @@ class NavBar extends Component {
             <div>
               <ul id="menu">
                 <li>
-                    <Image width={180} height={60} src="/GSELogo.png" alt="Goldstream Engineering Logo"/>
+                    <Image width={180} height={60} src="/GEIColored.png" alt="Goldstream Engineering Logo"/>
                 </li>
                 {PageLinks.map((item, index) => {
                     return (

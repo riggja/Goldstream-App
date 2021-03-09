@@ -28,44 +28,34 @@ class newFile extends Component {
                             <Form.Control placeholder="Enter Location" />
                         </Form.Group>
                         <Form.Group controlId="Time">
-                            <Form.Label>Time: </Form.Label>
+                            <Form.Label>Time at Site: </Form.Label>
                             <Form.Control placeholder="Enter Time" />
                         </Form.Group>
                         <Form.Group as={Row}>
-                            <Col sm={10}>
                                 <Form.Check
                                 type="radio"
                                 label="AM"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios1"
+                                name="formVerticalRadios"
+                                id="formVerticalRadios1"
                                 />
                                 <Form.Check
                                 type="radio"
                                 label="PM"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios2"
+                                name="formVerticalRadios"
+                                id="formVerticalRadios2"
                                 />
-                            </Col>
                         </Form.Group>
                         <Form.Group controlId="Temp">
                             <Form.Label>Temp: </Form.Label>
                             <Form.Control placeholder="Enter Temp" />
                         </Form.Group>
-                        <Form.Group as={Row}>
-                            <Col sm={10}>
-                                <Form.Check
-                                type="radio"
-                                label="F"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios1"
-                                />
-                                <Form.Check
-                                type="radio"
-                                label="C"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios2"
-                                />
-                            </Col>
+                        <Form.Group controlId="Wind">
+                            <Form.Label>Wind: </Form.Label>
+                            <Form.Control placeholder="Enter Wind" />
+                        </Form.Group>
+                        <Form.Group controlId="Percipitation">
+                            <Form.Label>Percipitation: </Form.Label>
+                            <Form.Control placeholder="Enter Percipitation" />
                         </Form.Group>
                         <Form.Group controlId="Contractor">
                             <Form.Label>Contractor: </Form.Label>
@@ -77,40 +67,33 @@ class newFile extends Component {
                         </Form.Group>
                         <Form.Group controlId="SiteConditions">
                             <Form.Label>Site Conditions: </Form.Label>
-                            <Form.Control placeholder="Enter Site Conditions" />
+                            <Form.Control size="lg" placeholder="Enter Site Conditions" />
                         </Form.Group>
                         <Form.Group controlId="Others">
                             <Form.Label>Others Present at Site: </Form.Label>
                             <Form.Control placeholder="Enter Others" />
                         </Form.Group>
-                        <Form.Group as={Row}>
-                        <Form.Label as="legend" column sm={2}>
-                            Copies to: 
-                        </Form.Label>
-                            <Col sm={10}>
-                                <Form.Check
-                                type="radio"
-                                label="Called"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios1"
-                                />
-                                <Form.Check
-                                type="radio"
-                                label="Checked In"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios2"
-                                />
-                                <Form.Check
-                                type="radio"
-                                label="E-mail"
-                                name="formHorizontalRadios"
-                                id="formHorizontalRadios3"
-                                />
-                            </Col>
-                        </Form.Group>
                         <Form.Group controlId="Name">
                             <Form.Label>Name: </Form.Label>
                             <Form.Control placeholder="Enter Name" />
+                        </Form.Group>
+                        <Form.Group controlId="Time">
+                            <Form.Label>Time from Site: </Form.Label>
+                            <Form.Control placeholder="Enter Time" />
+                        </Form.Group>
+                        <Form.Group as={Row}>
+                                <Form.Check
+                                type="radio"
+                                label="AM"
+                                name="formVerticalRadios"
+                                id="formVerticalRadios1"
+                                />
+                                <Form.Check
+                                type="radio"
+                                label="PM"
+                                name="formVerticalRadios"
+                                id="formVerticalRadios2"
+                                />
                         </Form.Group>
                     </Form>
                     <Button variant="outline-success">Add New File</Button>{' '}
