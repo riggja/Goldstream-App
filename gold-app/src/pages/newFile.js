@@ -1,106 +1,170 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import '../css/style.css';
 
-class newFile extends Component {
 
-    render() {
-        return(
-            <main>
-               <section >
-                    <h1>
-                        Input Form:
-                    </h1>
-                    <Form>
-                        <Form.Group controlId="JobNumber">
-                            <Form.Label>Job Number: </Form.Label>
-                            <Form.Control placeholder="Enter Job #" />
-                        </Form.Group>
-                        <Form.Group controlId="DateofInspection">
-                            <Form.Label>Date of Inspection: </Form.Label>
-                            <Form.Control placeholder="Enter Date" />
-                        </Form.Group>
-                        <Form.Group controlId="Location">
-                            <Form.Label>Location: </Form.Label>
-                            <Form.Control placeholder="Enter Location" />
-                        </Form.Group>
-                        <Form.Group controlId="Time">
-                            <Form.Label>Time at Site: </Form.Label>
-                            <Form.Control placeholder="Enter Time" />
-                        </Form.Group>
-                        <Form.Group as={Row}>
-                                <Form.Check
-                                type="radio"
-                                label="AM"
-                                name="formVerticalRadios"
-                                id="formVerticalRadios1"
-                                />
-                                <Form.Check
-                                type="radio"
-                                label="PM"
-                                name="formVerticalRadios"
-                                id="formVerticalRadios2"
-                                />
-                        </Form.Group>
-                        <Form.Group controlId="Temp">
-                            <Form.Label>Temp: </Form.Label>
-                            <Form.Control placeholder="Enter Temp" />
-                        </Form.Group>
-                        <Form.Group controlId="Wind">
-                            <Form.Label>Wind: </Form.Label>
-                            <Form.Control placeholder="Enter Wind" />
-                        </Form.Group>
-                        <Form.Group controlId="Percipitation">
-                            <Form.Label>Percipitation: </Form.Label>
-                            <Form.Control placeholder="Enter Percipitation" />
-                        </Form.Group>
-                        <Form.Group controlId="Contractor">
-                            <Form.Label>Contractor: </Form.Label>
-                            <Form.Control placeholder="Enter Contractor" />
-                        </Form.Group>
-                        <Form.Group controlId="Subcontractor">
-                            <Form.Label>Subcontractor: </Form.Label>
-                            <Form.Control placeholder="Enter Subcontractor" />
-                        </Form.Group>
-                        <Form.Group controlId="SiteConditions">
-                            <Form.Label>Site Conditions: </Form.Label>
-                            <Form.Control size="lg" placeholder="Enter Site Conditions" />
-                        </Form.Group>
-                        <Form.Group controlId="Others">
-                            <Form.Label>Others Present at Site: </Form.Label>
-                            <Form.Control placeholder="Enter Others" />
-                        </Form.Group>
-                        <Form.Group controlId="Name">
-                            <Form.Label>Name: </Form.Label>
-                            <Form.Control placeholder="Enter Name" />
-                        </Form.Group>
-                        <Form.Group controlId="Time">
-                            <Form.Label>Time from Site: </Form.Label>
-                            <Form.Control placeholder="Enter Time" />
-                        </Form.Group>
-                        <Form.Group as={Row}>
-                                <Form.Check
-                                type="radio"
-                                label="AM"
-                                name="formVerticalRadios"
-                                id="formVerticalRadios1"
-                                />
-                                <Form.Check
-                                type="radio"
-                                label="PM"
-                                name="formVerticalRadios"
-                                id="formVerticalRadios2"
-                                />
-                        </Form.Group>
-                    </Form>
-                    <Button variant="outline-success">Add New File</Button>{' '}
-                </section>
-            </main>
-        )
+export default class newFile extends Component {
+    documentData;
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+        this.state = {
+            number: '',
+            date: '',
+            location: '',
+            time: '',
+            temp: '',
+            wind: '',
+            percip: '',
+            contractor: '',
+            sub: '',
+            site: '',
+            name: '',
+            timef: ''
+        }
+    }
+    
+handleChange= (e)=> {
+    this.setState({[e.target.name]:e.target.value});
+}
+// on form submit...
+handleFormSubmit(e) {
+    e.preventDefault()
+    localStorage.setItem('document',JSON.stringify(this.state));
+}
+    
+// React Life Cycle
+componentDidMount() {
+    this.documentData = JSON.parse(localStorage.getItem('document'));
+    
+    if (localStorage.getItem('document')) {
+        this.setState({
+            number: this.documentData.number,
+            date: this.documentData.date,
+            location: this.documentData.location,
+            time: this.documentData.time,
+            temp: this.documentData.temp,
+            wind: this.documentData.wind,
+            percip: this.documentData.percip,
+            contractor: this.documentData.contractor,
+            sub: this.documentData.sub,
+            site: this.documentData.site,
+            name: this.documentData.name,
+            timef: this.documentData.timef
+    })
+    } else {
+        this.setState({
+            number: '',
+            date: '',
+            location: '',
+            time: '',
+            temp: '',
+            wind: '',
+            percip: '',
+            contractor: '',
+            sub: '',
+            site: '',
+            name: '',
+            timef: ''
+        })
     }
 }
+    
+render() {
+    return (
+        <section className="container">
+             <h1>
+                Input Form:
+            </h1>
+            <form onSubmit={this.handleFormSubmit}>
+                <div className="form-group">
+                    <label>Job Number: </label>
+                    <input type="text" name="number" className="form-control" value={this.state.number} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Date of Inspection: </label>
+                    <input type="text" name="date" className="form-control" value={this.state.date} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Location: </label>
+                    <input type="text" name="location" className="form-control" value={this.state.location} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Time at Site: </label>
+                    <input type="text" name="time" className="form-control" value={this.state.time} onChange={this.handleChange} />
+                </div>
+                <div>
+                    <Form.Group as={Row}>
+                        <Form.Check
+                        type="radio"
+                        label="AM"
+                        name="formVerticalRadios"
+                        id="formVerticalRadios1"
+                        />
+                        <Form.Check
+                        type="radio"
+                        label="PM"
+                        name="formVerticalRadios"
+                        id="formVerticalRadios2"
+                        />
+                    </Form.Group>
+                </div>
+                <div className="form-group">
+                    <label>Temp: </label>
+                    <input type="text" name="temp" className="form-control" value={this.state.temp} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Wind: </label>
+                    <input type="text" name="wind" className="form-control" value={this.state.wind} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Percipitation: </label>
+                    <input type="text" name="percip" className="form-control" value={this.state.percip} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Contractor: </label>
+                    <input type="text" name="contractor" className="form-control" value={this.state.contractor} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Subcontractor: </label>
+                    <input type="text" name="sub" className="form-control" value={this.state.sub} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Site Conditions: </label>
+                    <input type="text" name="site" className="form-control" value={this.state.site} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Name: </label>
+                    <input type="text" name="name" className="form-control" value={this.state.name} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Time from Site: </label>
+                    <input type="text" name="timef" className="form-control" value={this.state.timef} onChange={this.handleChange} />
+                </div>
+                <div>
+                    <Form.Group as={Row}>
+                        <Form.Check
+                        type="radio"
+                        label="AM"
+                        name="formVerticalRadios"
+                        id="formVerticalRadios1"
+                        />
+                        <Form.Check
+                        type="radio"
+                        label="PM"
+                        name="formVerticalRadios"
+                        id="formVerticalRadios2"
+                        />
+                    </Form.Group>
+                </div>
+                <button type="submit" className="btn btn-primary btn-block">Save</button>
+                <button type="submit" className="btn btn-primary btn-block">Finish Form</button>
+            </form>
+        </section>
+    )
+}
+}
 
-export default newFile
