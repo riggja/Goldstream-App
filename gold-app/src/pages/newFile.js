@@ -13,6 +13,7 @@ export default class newFile extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.state = {
+            values: {},
             number: '',
             date: '',
             location: '',
@@ -48,7 +49,23 @@ getPdfSource = async () => {
 // React Life Cycle
 componentDidMount() {
     this.documentData = JSON.parse(localStorage.getItem('document'));
-    
+    this.getPdfSource().then(pdfSource =>
+        this.setState({
+          pdfSource,
+          values: { number: '',
+          date: '',
+          location: '',
+          time: '',
+          temp: '',
+          wind: '',
+          percip: '',
+          contractor: '',
+          sub: '',
+          site: '',
+          name: '',
+          timef: ''}
+        })
+      );
     if (localStorage.getItem('document')) {
         this.setState({
             number: this.documentData.number,
