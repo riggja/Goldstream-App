@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row';
+import { createPDF } from "../../lib/createPDF";
+import Pdf from "react-native-pdf";
 import '../css/style.css';
 
 
@@ -34,6 +36,14 @@ handleFormSubmit(e) {
     e.preventDefault()
     localStorage.setItem('document',JSON.stringify(this.state));
 }
+
+getPdfSource = async () => {
+    const file = await createPDF(this.state.values);
+    const pdfSource = {
+      uri: file.filePath
+    };
+    return pdfSource;
+  };
     
 // React Life Cycle
 componentDidMount() {
