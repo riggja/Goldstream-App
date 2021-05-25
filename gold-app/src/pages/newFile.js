@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row';
-import { createPDF } from "../../lib/createPDF";
-import Pdf from "react-native-pdf";
 import '../css/style.css';
 
 
@@ -13,7 +11,6 @@ export default class newFile extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.state = {
-            values: {},
             number: '',
             date: '',
             location: '',
@@ -28,6 +25,26 @@ export default class newFile extends Component {
             timef: ''
         }
     }
+
+downloadTxtFile = () => {
+    const element = document.createElement("a");
+    const file = new Blob(["Job Number: " + this.state.number + "\n" + 
+                                "Date of Inspection: " + this.state.date  + "\n" +
+                                "Time at Site: " + this.state.time + "\n" +
+                                "Location: " + this.state.location + "\n" +
+                                "Temperature: " + this.state.temp + "\n" +
+                                "Wind: " + this.state.wind + "\n" +
+                                "Percipitation: " + this.state.percip + "\n" +
+                                "Contractor: " + this.state.contractor + "\n" +
+                                "Subcontractor: " + this.state.sub + "\n" +
+                                "Site Conditions: " + this.state.site + "\n" +
+                                "Name: " + this.state.name + "\n" +
+                                "Time from Site: " + this.state.timef], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = this.state.number + ".txt";
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+}
     
 handleChange= (e)=> {
     this.setState({[e.target.name]:e.target.value});
@@ -37,35 +54,10 @@ handleFormSubmit(e) {
     e.preventDefault()
     localStorage.setItem('document',JSON.stringify(this.state));
 }
-
-getPdfSource = async () => {
-    const file = await createPDF(this.state.values);
-    const pdfSource = {
-      uri: file.filePath
-    };
-    return pdfSource;
-  };
     
 // React Life Cycle
 componentDidMount() {
     this.documentData = JSON.parse(localStorage.getItem('document'));
-    this.getPdfSource().then(pdfSource =>
-        this.setState({
-          pdfSource,
-          values: { number: '',
-          date: '',
-          location: '',
-          time: '',
-          temp: '',
-          wind: '',
-          percip: '',
-          contractor: '',
-          sub: '',
-          site: '',
-          name: '',
-          timef: ''}
-        })
-      );
     if (localStorage.getItem('document')) {
         this.setState({
             number: this.documentData.number,
@@ -187,7 +179,7 @@ render() {
                     </Form.Group>
                 </div>
                 <button type="submit" className="btn btn-primary btn-block">Save</button>
-                <button type="submit" className="btn btn-primary btn-block">Finish Form</button>
+                <button type="submit" onClick={this.downloadTxtFile} className="btn btn-primary btn-block">Finish Form</button>
             </form>
         </section>
     )
