@@ -10,10 +10,6 @@ section {
     background-color: lightgrey;
 }
 
-footer {
-    display: none;
-}
-
 p {
     color: black;
     font-size: .75em;
@@ -24,8 +20,11 @@ nav {
     top: 0; 
     left: 0;
     width: 100%; 
-    padding: .75rem;
-    background-color: rgb(21, 96, 131);
+    height: 80px;
+    align-items: center;
+    display: flex;
+    background-color: rgb(44, 108, 138);
+    box-shadow: 0 0 25px 0 black;
 }
 
 a {
@@ -39,24 +38,12 @@ a:hover {
 
 li {
     color: black;
-    margin-right: 1rem;
-    padding-top: -2rem;
-}
-
-ul#menu li{
-    display: none;
 }
 
 ul#menu li:hover {
     color: forestgreen;
     border-bottom: .2rem solid  forestgreen;
     
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
 }
 
 @media (min-width:768px) {

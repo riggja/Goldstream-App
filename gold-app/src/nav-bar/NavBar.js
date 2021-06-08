@@ -29,7 +29,7 @@ class NavBar extends Component {
                 </li>
                 {PageLinks.map((item, index) => {
                     return (
-                        <li key={index} className="nav-item">
+                        <li id="nav" key={index} className="nav-item">
                             <Link className="nav-link" to={item.url}>
                                 {item.title}
                             </Link>
