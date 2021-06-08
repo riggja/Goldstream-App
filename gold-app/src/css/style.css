@@ -47,7 +47,7 @@ ul#menu li{
     display: none;
 }
 
-ul#menu li:hover {
+ul#menu li#nav-item:hover {
     color: forestgreen;
     border-bottom: .2rem solid  forestgreen;
     
