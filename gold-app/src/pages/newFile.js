@@ -11,6 +11,7 @@ export default class newFile extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.state = {
+            file: '',
             number: '',
             date: '',
             location: '',
@@ -41,7 +42,11 @@ downloadTxtFile = () => {
                                 "Name: " + this.state.name + "\n" +
                                 "Time from Site: " + this.state.timef], {type: 'text/plain'});
     element.href = URL.createObjectURL(file);
-    element.download = this.state.number + ".txt";
+    if(this.state.file === ''){
+        element.download = this.state.number + ".txt";
+    }else{
+        element.download = this.state.file + ".txt";
+    }
     document.body.appendChild(element); // Required for this to work in FireFox
     element.click();
 }
@@ -60,6 +65,7 @@ componentDidMount() {
     this.documentData = JSON.parse(localStorage.getItem('document'));
     if (localStorage.getItem('document')) {
         this.setState({
+            file: this.documentData.file,
             number: this.documentData.number,
             date: this.documentData.date,
             location: this.documentData.location,
@@ -75,6 +81,7 @@ componentDidMount() {
     })
     } else {
         this.setState({
+            file: '',
             number: '',
             date: '',
             location: '',
@@ -99,6 +106,10 @@ render() {
             </h1>
             <form onSubmit={this.handleFormSubmit}>
                 <div className="form-group">
+                    <label>File Name: </label>
+                    <input type="text" name="file" className="form-control" value={this.state.file} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
                     <label>Job Number: </label>
                     <input type="text" name="number" className="form-control" value={this.state.number} onChange={this.handleChange} />
                 </div>
@@ -113,22 +124,6 @@ render() {
                 <div className="form-group">
                     <label>Time at Site: </label>
                     <input type="text" name="time" className="form-control" value={this.state.time} onChange={this.handleChange} />
-                </div>
-                <div>
-                    <Form.Group as={Row}>
-                        <Form.Check
-                        type="radio"
-                        label="AM"
-                        name="formVerticalRadios"
-                        id="formVerticalRadios1"
-                        />
-                        <Form.Check
-                        type="radio"
-                        label="PM"
-                        name="formVerticalRadios"
-                        id="formVerticalRadios2"
-                        />
-                    </Form.Group>
                 </div>
                 <div className="form-group">
                     <label>Temp: </label>
@@ -161,22 +156,6 @@ render() {
                 <div className="form-group">
                     <label>Time from Site: </label>
                     <input type="text" name="timef" className="form-control" value={this.state.timef} onChange={this.handleChange} />
-                </div>
-                <div>
-                    <Form.Group as={Row}>
-                        <Form.Check
-                        type="radio"
-                        label="AM"
-                        name="formVerticalRadios"
-                        id="formVerticalRadios1"
-                        />
-                        <Form.Check
-                        type="radio"
-                        label="PM"
-                        name="formVerticalRadios"
-                        id="formVerticalRadios2"
-                        />
-                    </Form.Group>
                 </div>
                 <button type="submit" className="btn btn-primary btn-block">Save</button>
                 <button type="submit" onClick={this.downloadTxtFile} className="btn btn-primary btn-block">Finish Form</button>
